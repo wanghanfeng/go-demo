@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GOROOT = '/usr/lib/golang'          // 指定Go安装目录
+        GOROOT = '/usr/local/go'          // 指定Go安装目录
         GOPATH = "${WORKSPACE}/go"          // 将GOPATH设置为当前工作区下的go文件夹
         PATH = "${GOROOT}/bin:${GOPATH}/bin:${env.PATH}"
     }

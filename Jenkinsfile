@@ -64,7 +64,7 @@ pipeline {
                                     sourceFiles: 'myapp.tar.gz',
                                     remoteDirectory: '/root/user-bin',
                                     execCommand: ''' 
-                                        cd /opt/myapp && 
+                                        cd /root/user-bin && 
                                         tar -xzf myapp.tar.gz && 
                                         systemctl restart myapp.service
                                     '''  // 解压并重启服务

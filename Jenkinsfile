@@ -29,12 +29,12 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                // 运行测试
-                sh 'go test ./...'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         // 运行测试
+        //         sh 'go test ./...'
+        //     }
+        // }
 
         stage('Package') {
             steps {

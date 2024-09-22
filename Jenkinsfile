@@ -5,6 +5,8 @@ pipeline {
         GOROOT = '/usr/local/go'          // 指定Go安装目录
         GOPATH = "${WORKSPACE}/go"          // 将GOPATH设置为当前工作区下的go文件夹
         PATH = "${GOROOT}/bin:${GOPATH}/bin:${env.PATH}"
+        http_proxy=http://192.168.31.192:7890
+        https_proxy=http://192.168.31.192:7890
     }
 
     stages {

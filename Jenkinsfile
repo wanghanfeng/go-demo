@@ -61,9 +61,13 @@ pipeline {
                             configName: 'dev-machine-config',
                             transfers: [
                                 sshTransfer(
-                                    sourceFiles: 'app',
+                                    sourceFiles: 'myapp.tar.gz',
                                     remoteDirectory: '/root/user-bin',
-                                    execCommand: 'systemctl restart myapp.service' // 部署后重启服务
+                                    execCommand: ''' 
+                                        cd /opt/myapp && 
+                                        tar -xzf myapp.tar.gz && 
+                                        systemctl restart myapp.service
+                                    '''  // 解压并重启服务
                                 )
                             ]
                         )

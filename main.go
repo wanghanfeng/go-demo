@@ -12,7 +12,7 @@ func main() {
 
 	// 定义一个处理 GET 请求的路由
 	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello Go")
+		c.String(http.StatusOK, "Hello Go; version=1")
 	})
 
 	// 在80端口上运行

@@ -51,6 +51,26 @@ pipeline {
                 archiveArtifacts artifacts: 'myapp.tar.gz', followSymlinks: false
             }
         }
+
+        stage('Deploy to Server') {
+            steps {
+                // 使用 SSH 将二进制文件传输到远程服务器
+                sshPublisher(
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: 'dev-machine-config',
+                            transfers: [
+                                sshTransfer(
+                                    sourceFiles: 'app',
+                                    remoteDirectory: '/root/user-bin',
+                                    execCommand: 'systemctl restart myapp.service' // 部署后重启服务
+                                )
+                            ]
+                        )
+                    ]
+                )
+            }
+        }
     }
 
     post {

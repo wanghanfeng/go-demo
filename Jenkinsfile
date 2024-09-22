@@ -62,7 +62,7 @@ pipeline {
                             transfers: [
                                 sshTransfer(
                                     sourceFiles: 'myapp.tar.gz',
-                                    remoteDirectory: '/root/user-bin',
+                                    remoteDirectory: './',
                                     execCommand: ''' 
                                         cd /root/user-bin && 
                                         tar -xzf myapp.tar.gz && 
